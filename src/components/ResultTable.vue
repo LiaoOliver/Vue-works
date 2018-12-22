@@ -29,49 +29,44 @@
         </div>
         <div class="baggage">
             <div>托運行李</div>
-            <div><i :class="['fas',select? 'fa-check':'fa-times']"></i></div>
-            <div><i :class="['fas',select? 'fa-check':'fa-times']"></i></div>
+            <Checked checked=""></Checked>
+            <Checked checked="true"></Checked>
         </div>
         <div class="change">
             <div>更改機票手續費</div>
-            <div><i :class="['fas',select? 'fa-check':'fa-times']"></i></div>
-            <div><i :class="['fas',select? 'fa-check':'fa-times']"></i></div>
+            <Checked checked=""></Checked>
+            <Checked checked="false"></Checked>
         </div>
         <div class="return">
             <div>退票手續費</div>
-            <div><i :class="['fas',select? 'fa-check':'fa-times']"></i></div>
-            <div><i :class="['fas',select? 'fa-check':'fa-times']"></i></div>
+            <Checked checked=""></Checked>
+            <Checked checked="true"></Checked>
         </div>
         <div class="select">
             <div>座位選擇</div>
-            <div><i :class="['fas',select? 'fa-check':'fa-times']"></i></div>
-            <div><i :class="['fas',select? 'fa-check':'fa-times']"></i></div>
+            <Checked checked=""></Checked>
+            <Checked checked="true"></Checked>
         </div>
         <div class="accumulation">
             <div>哩程累積</div>
-            <div><i :class="['fas',accumulation? 'fa-check':'fa-times']"></i></div>
-            <div><i :class="['fas',accumulation? 'fa-check':'fa-times']"></i></div>
+            <Checked checked=""></Checked>
+            <Checked checked="true"></Checked>
         </div>
         <div class="upgrade">
             <div>哩程升等</div>
-            <div><i :class="['fas',upgrade? 'fa-check':'fa-times']"></i></div>
-            <div><i :class="['fas',upgrade? 'fa-check':'fa-times']"></i></div>
+            <Checked checked="false"></Checked>
+            <Checked checked="true"></Checked>
         </div>
     </div>
 </template>
 
 <script>
 import PriceCard from '@/components/PriceCard.vue'
+import Checked from '@/components/Checked.vue'
 export default {
     components:{
-        PriceCard
-    },
-    data(){
-        return{
-            select:true,
-            upgrade:true,
-            accumulation:false
-        }
+        PriceCard,
+        Checked
     },
     methods:{
         addToCart(){
