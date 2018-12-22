@@ -1,0 +1,27 @@
+.priceCard{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 70%;
+    height: 80%;
+    border-radius: 3px;
+    box-shadow: 0px 0px 4px 1px rgba(0,0,0,0.5);
+    background-color: #eee;
+    font-weight: bold;
+    &.check{
+        background-color: rgb(87, 87, 87);
+        color: #fff;
+    }
+    .currency{}
+    .price{
+        font-size: 28px;
+    }
+    .decoration{
+        position: absolute;
+        top: 4px;
+        left: 4px;
+        font-size: 22px;
+    }
+}

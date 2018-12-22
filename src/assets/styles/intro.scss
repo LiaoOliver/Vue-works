@@ -1,0 +1,38 @@
+.introHead{
+    margin: 40px 0;
+    text-align: center;
+    >h2{
+        margin: 0px;
+        margin-bottom: 4px;
+    }
+}
+.serverItem{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    .itemImage{
+        width: 50%;
+        >div{
+            width: 220px;
+            height: 180px;
+            margin: auto;
+            background-size: cover;
+        }
+        .SkyIcon{
+            background-image: url('../assets/img/search.png');
+        }
+        .mapIcon{
+            background-image: url('../assets/img/server.png');
+        }
+        .appIcon{
+            background-image: url('../assets/img/app.png');
+        }
+        .newsIcon{
+            background-image: url('../assets/img/news.png');
+        }
+    }
+    .itemDesc{
+        width: 50%;
+    }
+}

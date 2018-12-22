@@ -1,5 +1,5 @@
 <template>
     <div>
-        優惠票價
+        搜尋機票
     </div>
 </template>

@@ -1,0 +1,24 @@
+.bgImage{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width:100%;
+    height:450px;
+    background-image: url('../assets/img/bgBanner.jpg');
+    background-position: center;
+    background-size: cover;
+        background-position-y: 17%;
+    .bgMask{
+        position: absolute;
+        background-color: rgba(0, 0, 0, 0.3);
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+    }
+    .inputform{
+        position: absolute;
+        padding-bottom: 10%;
+    }
+}

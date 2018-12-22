@@ -1,0 +1,54 @@
+@import './shared.scss';
+.socialMedia{
+    width: 100%;
+    height: 100px;
+    margin-top: 40px;
+    background-color: $background-blue;
+}
+.socialIcon{
+    width: 30px;
+    height: 30px;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+.igIcon{
+    background-image: url('../assets/img/instagram-logo.svg');
+}
+.fbIcon{
+    background-image: url('../assets/img/facebook.svg');
+}
+.ytIcon{
+    background-image: url('../assets/img/youtube.svg');
+}
+ul {
+    display: flex;
+    justify-content: center;
+    margin: 0px;
+    padding: 0px;
+    >li{
+        list-style-type: none;
+        margin: 20px;
+        &:nth-child(2){
+            display: flex;
+            position: relative;
+        }
+        &:nth-child(2)::after{
+            content: " ";
+            position: absolute;
+            width: 1px;
+            height: 25px;
+            right: -20px;
+            top: 4px;
+            background-color: $background-deepBlue;
+        }
+        &:nth-child(2)::before{
+            content: " ";
+            position: absolute;
+            width: 1px;
+            height: 25px;
+            left: -20px;
+            top: 4px;
+            background-color: $background-deepBlue;
+        }
+    }
+}
