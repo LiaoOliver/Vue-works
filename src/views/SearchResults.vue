@@ -1,8 +1,9 @@
 <template>
     <div class="layout">
         <div class="showResult">
-            <Result></Result>
-            <Result></Result>
+            <template v-for="item in flight_Information">
+                <Result :props=item :key="item.id"></Result>
+            </template>
         </div>
         <div class="order">
             <Cart></Cart>
@@ -19,85 +20,11 @@ export default {
         Cart
     },
     data(){
+        // Vuex 取資料的方法 => 到 Vue 實體上找到 store ，在尋找 state 獲取資料
         return{
-            flight_Information:[
-                {
-                    from:{
-                        Date:"",
-                        Departure:"",
-                        Arrival:"",
-                        flightTime:"",
-                        Cabin:"",
-                        flightType:"",
-                        Price:{
-                            economyClass:"",
-                            businessClass:"",
-                        },
-                        Consignment:{
-                            economyClass:"",
-                            businessClass:"",
-                        },
-                        Change:{
-                            economyClass:"",
-                            businessClass:"",
-                        },
-                        Return:{
-                            economyClass:"",
-                            businessClass:"",
-                        },
-                        SeatSelection:{
-                            economyClass:"",
-                            businessClass:"",
-                        },
-                        MileageAccumulation:{
-                            economyClass:"",
-                            businessClass:"",
-                        },
-                        MileageUpgrade:{
-                            economyClass:"",
-                            businessClass:"",
-                        }
-                    },
-                    To:{
-                        Date:"",
-                        Departure:"",
-                        Arrival:"",
-                        flightTime:"",
-                        Cabin:"",
-                        flightType:"",
-                        Price:{
-                            economyClass:"",
-                            businessClass:"",
-                        },
-                        Consignment:{
-                            economyClass:"",
-                            businessClass:"",
-                        },
-                        Change:{
-                            economyClass:"",
-                            businessClass:"",
-                        },
-                        Return:{
-                            economyClass:"",
-                            businessClass:"",
-                        },
-                        SeatSelection:{
-                            economyClass:"",
-                            businessClass:"",
-                        },
-                        MileageAccumulation:{
-                            economyClass:"",
-                            businessClass:"",
-                        },
-                        MileageUpgrade:{
-                            economyClass:"",
-                            businessClass:"",
-                        }
-                    }
-                }
-            ]
+            flight_Information:this.$store.state.flight_Information   
         }
-    }
+    },
 }
 </script>
 
