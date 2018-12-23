@@ -1,7 +1,9 @@
 <template>
     <div class="layout">
         <div class="headerFirstRow">
-            <img src="@/assets/img/webLogo.png" alt="" width="170">
+            <router-link to="/">
+                <img src="@/assets/img/webLogo.png" alt="" width="170">
+            </router-link>
             <div class="controller">
                 <router-link to="/">
                     <el-button size="mini" round>

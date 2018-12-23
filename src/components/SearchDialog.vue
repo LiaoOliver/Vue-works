@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="searchDialig">
         <el-form :inline="true" :model="formInline" class="demo-form-inline">
             <el-form-item class="tourType">
                 <el-radio-group v-model="formInline.type">
@@ -50,7 +50,9 @@
                 </div>
             </el-form-item>
             <el-form-item>
-                <el-button type="primary" @click="onSubmit">送出</el-button>
+                <router-link to="/searchresults">
+                    <el-button type="primary" @click="onSubmit">送出</el-button>
+                </router-link>
             </el-form-item>
         </el-form>
     </div>

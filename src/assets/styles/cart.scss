@@ -1,0 +1,32 @@
+@import './shared.scss';
+.cartForm{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.cart{
+    width: 80%;
+    margin: auto;
+    box-shadow: $box-shadow;
+    border-radius: 6px;
+    .cartHead{
+        height: 40px;
+        line-height: 40px;
+        padding: 0px 8px;
+    }
+    .totalFee{
+        padding: 30px 0px;
+        background-color: $background-cartFee;
+        border-radius: 0px 0px 6px 6px;
+        .total{
+            display: flex;
+            justify-content: space-between;
+            padding: 0px 8px;
+        }
+    }
+}
+.submitBtn{
+    margin-top: 20px;
+    width: 80%;
+}

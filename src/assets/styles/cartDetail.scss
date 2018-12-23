@@ -1,0 +1,23 @@
+.cartDetail{
+    .Head{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #ddd;
+        padding: 0px 8px;
+        height: 42px;
+        font-size: 18px;
+    }
+    .content{
+        >ul{
+            margin: 0px;
+            margin-top: 6px;
+            padding: 0px;
+            padding-left: 8px;
+            list-style-type: none;
+            >li{
+                height: 30px;
+            }
+        }
+    }
+}

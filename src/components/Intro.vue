@@ -19,6 +19,9 @@
                 </div>
             </div>
             <div class="serverItem">
+                <div class="itemImage">
+                    <div class="mapIcon"></div>
+                </div>
                 <div class="itemDesc">
                     <h3>Skyscanner 獨有的比價功能</h3>
                     <p>
@@ -26,9 +29,6 @@
                         不但縮短你的機票查詢時間更能幫你省錢，
                         立刻去Skyscanner學習獨有的機票比價功能吧！
                     </p>
-                </div>
-                <div class="itemImage">
-                    <div class="mapIcon"></div>
                 </div>
             </div>
             <div class="serverItem">
@@ -45,6 +45,9 @@
                 </div>
             </div>
             <div class="serverItem">
+                <div class="itemImage">
+                    <div class="newsIcon"></div>
+                </div>
                 <div class="itemDesc">
                     <h3>Skyscanner 旅遊新聞</h3>
                     <p>
@@ -52,9 +55,6 @@
                     那Skyscanner的旅遊新聞絕對能滿足你，而精心整理的機票促銷專刊，更是你絕對不能錯過的機票優惠資訊。
                     查看旅遊資訊!
                     </p>
-                </div>
-                <div class="itemImage">
-                    <div class="newsIcon"></div>
                 </div>
             </div>
         </div>

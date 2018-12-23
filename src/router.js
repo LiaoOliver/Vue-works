@@ -7,6 +7,7 @@ import SearchResults from './views/SearchResults.vue'
 import SpecialPrice from './views/SpecialPrice.vue'
 import Search from './views/Search.vue'
 
+
 Vue.use(Router)
 
 export default new Router({
@@ -35,7 +36,8 @@ export default new Router({
     {
       path: '/searchresults',
       name: 'aboSearchresultsut',
-      component: SearchResults
+      component: SearchResults,
+      
     },
     {
       path: '/specialprice',

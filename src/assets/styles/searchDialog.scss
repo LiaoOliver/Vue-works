@@ -1,9 +1,15 @@
-.tourType{
-    position: absolute;
-    top: -40px;
-    color: #fff;
-    .typeOption{
+.searchDialig{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .tourType{
+        position: absolute;
+        top: -40px;
         color: #fff;
+        .typeOption{
+            color: #fff;
+        }
     }
 }
+
     
