@@ -6,11 +6,27 @@ import axios from 'axios'
 import VueAxios from 'vue-axios'
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
+// FB SDK login
+import './assets/application.js'
 
 Vue.config.productionTip = false
 
 Vue.use(VueAxios, axios)
 Vue.use(ElementUI);
+
+router.beforeEach((to, from, next)=>{
+    if (to.meta.requiresAuth) {
+      if (store.state.accessToken){
+        next()
+      }else{
+        next({
+          path: '/'
+        });
+      }
+    } else {
+      next();
+    }
+})
 
 new Vue({
   router,

@@ -14,13 +14,32 @@
                     </el-button>
                 </router-link>
                 <!-- <el-button type="text" @click="toggleDialog">点击打开 Dialog</el-button> -->
-                
-                <el-button size="mini" round @click="toggleDialog">
+                <el-button size="mini" round @click="login" v-if="!accessToken">
                     <div class="lang-btn">
                         <img src="@/assets/img/login.svg" alt="flag" width="20">
                         <span>登入</span>
                     </div>
                 </el-button>
+                
+                <el-button size="mini" round v-else>
+                    <router-link to="/member">
+                        <div class="lang-btn">
+                            <img src="@/assets/img/login.svg" alt="flag" width="20">
+                            <span>會員管理</span>
+                        </div>
+                    </router-link>
+                </el-button>
+
+                <el-button size="mini" round @click="logout">
+                    <router-link to="/">
+                        <div class="lang-btn">
+                        <img src="@/assets/img/login.svg" alt="flag" width="20">
+                        <span>登出</span>
+                    </div>
+                    </router-link>
+                </el-button>
+
+                
                 <Dialog :actionDialog=actionDialog></Dialog>
             </div>
             
@@ -30,18 +49,6 @@
                 <div class="ticket tag">
                     <img src="@/assets/img/airplane.svg" alt="ticket" width="20">
                     <span>機票</span>
-                </div>
-            </router-link>
-            <router-link to="/">
-                <div class="bookingCars tag">
-                    <img src="@/assets/img/car.svg" alt="cars" width="20">
-                    <span>租車</span>
-                </div>
-            </router-link>
-            <router-link to="/">
-                <div class="bookingHotels tag">
-                    <img src="@/assets/img/bed.svg" alt="hotels" width="20">
-                    <span>酒店</span>
                 </div>
             </router-link>
         </div>
@@ -56,13 +63,59 @@ export default {
     },
     data(){
         return{
-            actionDialog:false
+            actionDialog:false,
+            accessToken:this.$store.state.accessToken,
         }
     },
     methods: {
         toggleDialog(){
             this.actionDialog = true;
-        }
+        },
+        login () {
+            let vm = this
+            FB.login(function (response) {
+                vm.$store.dispatch('saveAccessToken',response.authResponse.accessToken);
+                vm.getProfile();
+                vm.accessToken = (vm.$store.state.accessToken);
+                console.log('res', response)
+            }, {
+                scope: 'email, public_profile',
+                return_scopes: true
+            })
+        },
+        logout () {
+            let vm = this
+            FB.logout(function (response) {
+                vm.$store.dispatch('saveAccessToken',response.authResponse.accessToken);
+            })
+        },
+        getProfile () {
+            let vm = this
+            FB.api('/me?fields=name,id,email,picture', function (response) {
+                vm.$store.dispatch('getUserInfo',response);
+            })
+        },
+    },
+    mounted(){
+        const vm = this
+        // facebook 初始化
+        window.fbAsyncInit = function() {
+        FB.init({
+            appId      : '153216555532092',
+            cookie     : true,
+            xfbml      : true,
+            version    : 'v2.9'
+        });
+        FB.AppEvents.logPageView();
+        
+        // Get FB Login Status
+        FB.getLoginStatus( response => {
+                vm.getProfile();
+                if(response.status === 'unknown') vm.$store.dispatch('saveAccessToken',response.status);
+                vm.$store.dispatch('saveAccessToken',response.authResponse.accessToken);// 這裡可以得到 fb 回傳的結果
+                vm.accessToken = (vm.$store.state.accessToken);
+            })
+        };
     },
 }
 </script>

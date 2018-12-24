@@ -6,6 +6,9 @@ import Member from './views/Member.vue'
 import SearchResults from './views/SearchResults.vue'
 import SpecialPrice from './views/SpecialPrice.vue'
 import Search from './views/Search.vue'
+import Createdata from './components/CreateData.vue'
+import Account from './components/Account.vue'
+import CountrySite from './views/CountrySite.vue'
 
 
 Vue.use(Router)
@@ -31,7 +34,22 @@ export default new Router({
     {
       path: '/member',
       name: 'member',
-      component: Member
+      component: Member,
+      meta: { requiresAuth: true },
+      children:[
+        {
+          path:"createdata",
+          name:'Createdata',
+          component:Createdata,
+          meta: { requiresAuth: true },
+        },
+        {
+          path: "account",
+          name: 'Account',
+          component: Account,
+          meta: { requiresAuth: true },
+        },
+      ]
     },
     {
       path: '/searchresults',
@@ -47,6 +65,10 @@ export default new Router({
       path:'/search',
       name:'search',
       component: Search
+    },{
+      path: '/countrySite/:id',
+      name: 'countrySite',
+      component: CountrySite,
     }
   ]
 })

@@ -29,6 +29,7 @@
                     :flightTime=props.flightTime
                     :price=props.Price.economyClass
                     :Date=props.Date
+                    :GoBack=props.GoBack
                     :flightType=props.flightType>
                 </PriceCard>
             </div>
@@ -41,6 +42,7 @@
                     :flightTime=props.flightTime
                     :price=props.Price.businessClass
                     :Date=props.Date
+                    :GoBack=props.GoBack
                     :flightType=props.flightType>
                 </PriceCard>
             </div>

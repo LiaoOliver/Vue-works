@@ -5,12 +5,12 @@
                 1位旅客
                 1位成人
             </div>
-            <detail></detail>
-            <detail></detail>
+            <detail :flightInfo=cartInfo.From></detail>
+            <detail :flightInfo=cartInfo.To></detail>
             <div class="totalFee">
                 <div class="total">
                     <span>機票費用總計:</span>
-                    <span>TWD:10,356</span>
+                    <span>TWD{{totalPrice}}</span>
                 </div>
             </div>
         </div>
@@ -21,8 +21,21 @@
 <script>
 import detail from './CartDetail';
 export default {
+    data(){
+        return{
+            cartInfo:this.$store.state.cart,
+        }
+    },
     components:{
         detail
+    },
+    computed:{
+        totalPrice: function(){
+            console.log(parseInt(this.$store.state.cart.From.price))
+            return parseInt(this.$store.state.cart.From.price) + parseInt(this.$store.state.cart.To.price) ?
+             parseInt(this.$store.state.cart.From.price) + parseInt(this.$store.state.cart.To.price) 
+             : "";
+        }
     }
 }
 </script>

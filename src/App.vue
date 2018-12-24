@@ -1,9 +1,5 @@
 <template>
   <div id="app">
-    <!-- <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div> -->
     <div class="App">
       <PageHead></PageHead>
       <router-view/>
@@ -19,7 +15,8 @@ export default {
   components: {
     PageHead,
     PageFootr
-  }
+  },
+  
 }
 </script>
 

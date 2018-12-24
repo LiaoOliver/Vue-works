@@ -1,6 +1,6 @@
 <template>
     
-    <div :class="['priceCard', checked? 'check' : '']" @click="addToCart">
+    <div class="priceCard" @click="addToCart">
         <div class="currency">TWD</div> 
         <div class="price">{{price}}</div>
         <div class="decoration"><i class="fas fa-tag"></i></div> 
@@ -18,31 +18,32 @@ export default {
         "price",
         "Date",
         "flightType",
+        "GoBack"
         ],
     data(){
         return{
             checked:false,
-            order:[]
         }
     },
     methods:{
         addToCart(){
             // 新增資料到 Vuex 
-            this.checked = !this.checked
-            console.log(this.order)
+            this.$store.dispatch('addToCart',this.order);
+            // console.log(this.$store.state.cart.From)
         }
     },
     created(){
-        this.order.push(
-            this.DepartureTime,
-            this.Departure,
-            this.ArrivalTime,
-            this.Arrival,
-            this.flightTime,
-            this.price,
-            this.Date,
-            this.flightType,
-        )
+        this.order = {
+            "DepartureTime":this.DepartureTime,
+            "Departure":this.Departure,
+            "ArrivalTime":this.ArrivalTime,
+            "Arrival":this.Arrival,
+            "flightTime":this.flightTime,
+            "price":this.price,
+            "Date":this.Date,
+            "flightType":this.flightType,
+            "GoBack":this.GoBack
+        }   
     }
 }
 </script>
