@@ -30,6 +30,7 @@ export default {
     methods:{
         submit(){
             if(this.next === "/payment"){
+                this.$store.dispatch('addToPrice',this.totalPrice);
                 this.submitForm() ;
             }else{
                 this.$router.push(this.next)

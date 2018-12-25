@@ -8,6 +8,7 @@
             <div slot="progressLine"></div>
         </orderProgress>
         <CheckOrder></CheckOrder>
+        <div class="backPrev"><el-button @click="backPrev" type="danger">返回上一頁</el-button></div>
         <ActionPayment></ActionPayment>
     </div>
 </template>
@@ -21,10 +22,16 @@ export default {
         orderProgress,
         CheckOrder,
         ActionPayment
+    },
+    methods:{
+        backPrev(){
+            this.$router.go(-1);
+        }
     }
 }
 </script>
 
 <style lang="scss" scoped>
+@import '../assets/styles/payment.scss';
 @import '../assets/styles/layout.scss';
 </style>

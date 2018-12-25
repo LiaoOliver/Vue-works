@@ -1,0 +1,65 @@
+@import './shared.scss';
+.payForm{
+    box-shadow: $box-shadow;
+    border-radius: 6px;
+    .title{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 50px;
+        color: #fff;
+        font-size: 18px;
+        border-radius: 6px 6px 0px 0px;
+        background-color: $background-progress;
+    }
+    .cardInfo{
+        border-radius:0px;
+    }
+    .firstRow{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 90px;
+        margin-bottom: 20px;
+        .radioItem{
+            position: relative;
+            width: 120px;
+            text-align: center;
+            img{
+                position: absolute;
+                top: -70px;
+                left: 24px;
+            }
+        }
+    }
+    .Row{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 500px;
+        margin: auto;
+        margin-top:20px;
+        margin-bottom: 20px;
+        div{
+            width: 67px;
+            margin: 0px 5px;
+        }
+        .ValidityPeriod{
+            width: 69%;
+        }
+        .AuthorizationCode{
+            width: 72%;
+        }
+    }
+    .footer{
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        padding-right: 15px;
+        height: 60px;
+        background-color: $background-cartFee;
+        font-size: 24px;
+        font-weight: 900;
+        border-radius: 0 0 6px 6px;
+    }
+}

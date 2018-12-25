@@ -1,0 +1,71 @@
+@import './shared.scss';
+.checkorder{
+    box-shadow: $box-shadow;
+    border-radius: 6px;
+    margin-bottom: 10px;
+    .flight{
+        display: flex;
+        .GO{
+            border-right: 1px solid;
+        }
+        >div{
+            width: 50%;
+            > p {
+                margin: 0px;
+                margin-bottom: 20px;
+                padding-left: 15px;
+                &:nth-child(1){
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    height: 50px;
+                    padding: 0px;
+                    font-size: 18px;
+                    color: #fff;
+                    background-color: $background-progress;
+                }
+            }
+            .go{
+                border-radius: 6px 0 0 0;
+            }
+            .back{
+                border-radius: 0 6px 0 0;
+            }
+        }
+    }
+    .passenger{
+        >div{
+            margin: auto;
+            width: 300px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+        }
+        .title{
+            width: 100%;
+            justify-content: center;
+            background-color: $background-progress;
+            font-size: 18px;
+            color: #fff;
+        }
+        .secondRow{
+            display: flex;
+            >span{
+                display: block;
+                width: 50%;
+            }
+        }
+    }
+    .total{
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        padding-right: 15px;
+        height: 60px;
+        background-color: $background-cartFee;
+        font-size: 24px;
+        font-weight: 900;
+        border-radius: 0 0 6px 6px;
+    }
+}

@@ -42,8 +42,8 @@
         }
         .checked{
             color: #fff;
-            background-color: #1565C0;
-            border: 2px solid #1565C0;
+            background-color: $background-progress;
+            border: 2px solid $background-progress;
             border-radius: 50%;
         }   
     }

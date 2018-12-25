@@ -8,7 +8,8 @@ const type = {
   SET_ACCESSTOKEN:"SET_ACCESSTOKEN",
   SET_USERINFO:"SET_USERINFO",
   SET_CLEARCART:"SET_CLEARCART",
-  SET_PASSENGER:"SET_PASSENGER"
+  SET_PASSENGER:"SET_PASSENGER",
+  SET_PRICE: "SET_PRICE"
 }
 
 const state = {
@@ -95,7 +96,8 @@ const state = {
   ],
   cart:{
     To:{},
-    From:{}
+    From:{},
+    totalPrice:{}
   },
   accessToken:"",
   userInfo:{
@@ -116,6 +118,9 @@ export default new Vuex.Store({
       }else{
         state.cart.To = load 
       }
+    },
+    [type.SET_PRICE](state, price) {
+      state.cart.totalPrice = price;
     },
     [type.SET_ACCESSTOKEN](state, token) {
       if (token === 'unknown'){
@@ -143,6 +148,9 @@ export default new Vuex.Store({
   actions: {
     addToCart:({commit},load)=>{
       commit(type.SET_ADDTOCART,load)
+    },
+    addToPrice:({commit}, price) => {
+      commit(type.SET_PRICE, price)
     },
     saveAccessToken: ({commit},token)=>{
       commit(type.SET_ACCESSTOKEN, token)
