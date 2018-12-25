@@ -14,16 +14,30 @@
                 </div>
             </div>
         </div>
-        <el-button class="submitBtn" type="danger" plain>下一步</el-button>
+        <el-button @click="submit" class="submitBtn" type="danger" plain>下一步</el-button>
     </div>
 </template>
 
 <script>
 import detail from './CartDetail';
 export default {
+    props:['next'],
     data(){
         return{
             cartInfo:this.$store.state.cart,
+        }
+    },
+    methods:{
+        submit(){
+            if(this.next === "/payment"){
+                this.submitForm() ;
+            }else{
+                this.$router.push(this.next)
+            }
+        },
+        submitForm(){
+            this.$bus.$emit('verification', this.next)
+            console.log(this.$bus.$emit)
         }
     },
     components:{

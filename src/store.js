@@ -7,7 +7,8 @@ const type = {
   SET_ADDTOCART:"SET_ADDTOCART",
   SET_ACCESSTOKEN:"SET_ACCESSTOKEN",
   SET_USERINFO:"SET_USERINFO",
-  SET_CLEARCART:"SET_CLEARCART"
+  SET_CLEARCART:"SET_CLEARCART",
+  SET_PASSENGER:"SET_PASSENGER"
 }
 
 const state = {
@@ -102,7 +103,8 @@ const state = {
     email:"",
     uid:"",
     picture:""
-  }
+  },
+  passengerData:{}
 }
 
 export default new Vuex.Store({
@@ -133,6 +135,9 @@ export default new Vuex.Store({
       }else{
         state.cart.To = {}
       }
+    },
+    [type.SET_PASSENGER](state, passengerData) {
+      state.passengerData = passengerData
     }
   },
   actions: {
@@ -147,6 +152,9 @@ export default new Vuex.Store({
     },
     clearCart: ({commit}, goback) => {
       commit(type.SET_CLEARCART, goback)
+    },
+    addpassengerData: ({ commit }, passengerData) => {
+      commit(type.SET_PASSENGER, passengerData)
     }
   }
 })

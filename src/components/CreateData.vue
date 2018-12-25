@@ -51,7 +51,7 @@
             <el-input v-model.number="ruleForm.passport"></el-input>
         </el-form-item>
         
-        <el-form-item >
+        <el-form-item v-if=closesumbit>
             <el-button type="primary" @click="submitForm('ruleForm')">確認送出</el-button>
             <el-button @click="resetForm('ruleForm')">重置</el-button>
         </el-form-item>
@@ -59,6 +59,7 @@
 </template>
 <script>
   export default {
+      props:['closesumbit'],
     data() {
       return {
         ruleForm: {
@@ -70,6 +71,7 @@
             country:"",
             passport:""
         },
+        toRouterLink:false,
         rules: {
             title:{ required: true, message: '請輸入稱謂', trigger: 'blur' },
             name:{ required: true, message: '請輸入名字', trigger: 'blur' },
@@ -88,7 +90,9 @@
       submitForm(formName) {
         this.$refs[formName].validate((valid) => {
           if (valid) {
-            console.log(this.ruleForm)
+            this.$store.dispatch('addpassengerData', this.ruleForm);
+            if(this.toRouterLink) this.$router.push(this.routerName)
+            return true;
           } else {
             console.log('error submit!!');
             return false;
@@ -97,7 +101,15 @@
       },
       resetForm(formName) {
         this.$refs[formName].resetFields();
+        
       }
+    },
+    mounted(){
+        this.$bus.$on('verification', (router)=>{
+            this.toRouterLink = true
+            this.routerName = router
+            this.submitForm('ruleForm');
+        })
     }
   }
 </script>

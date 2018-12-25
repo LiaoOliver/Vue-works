@@ -1,0 +1,12 @@
+@import './shared.scss';
+.content{
+    display: grid;
+    grid-template-columns: 60% 40%;
+    > form {
+        height: 474px;
+        box-shadow: $box-shadow;
+        border-radius: 6px;
+        padding-top: 40px;
+        padding-right: 80px;
+    }
+}

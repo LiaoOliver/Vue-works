@@ -9,6 +9,8 @@ import Search from './views/Search.vue'
 import Createdata from './components/CreateData.vue'
 import Account from './components/Account.vue'
 import CountrySite from './views/CountrySite.vue'
+import PassengerForm from './views/PassengerForm.vue'
+import Payment from './views/Payment.vue'
 
 
 Vue.use(Router)
@@ -69,6 +71,14 @@ export default new Router({
       path: '/countrySite/:id',
       name: 'countrySite',
       component: CountrySite,
-    }
+    },{
+      path: '/passengerForm',
+      name: 'passengerForm',
+      component: PassengerForm
+    }, {
+      path: '/payment',
+      name: 'payment',
+      component: Payment
+    },
   ]
 })
